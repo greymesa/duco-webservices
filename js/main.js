@@ -40,13 +40,7 @@ function calculdaily(newb, oldb) {
     start = Date.now()
 }
 
-let adBlockEnabled = false
-const googleAdUrl = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-try {
-    fetch(new Request(googleAdUrl)).catch(_ => adBlockEnabled = true)
-} catch (e) {
-    adBlockEnabled = true
-}
+
 
 function update_element(element, value) {
     // Nicely fade in the new value if it changed
@@ -865,11 +859,7 @@ window.addEventListener('load', function() {
 
                             $("iframe#news_iframe").attr('src', 'https://server.duinocoin.com/news.html');
 
-                            if (adBlockEnabled) {
-                                $("#adblocker_detected").show()
-                            } else {
-                                (adsbygoogle = window.adsbygoogle || []).push({});
-                            }
+
 
                             // THEME SWITCHER
                             let themesel = document.getElementById('themesel');

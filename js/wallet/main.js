@@ -643,13 +643,6 @@ function calculdaily(newb, oldb) {
     }
 }
 
-let adBlockEnabled = false
-const googleAdUrl = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-try {
-    fetch(new Request(googleAdUrl)).catch(_ => adBlockEnabled = true)
-} catch (e) {
-    adBlockEnabled = true
-}
 
 function update_element(element, value) {
     // Nicely fade in the new value if it changed
@@ -1522,25 +1515,7 @@ window.addEventListener('load', function () {
                         user_data(username, false);
                     }, 10 * 1000);
 
-                    setTimeout(function () {
-                        $('#form').hide("drop", { direction: "up" }, 300, function () {
-                            $('#wallet').show("drop", { direction: "down" }, 300, function () {
-                                if (adBlockEnabled) {
-                                    $("#adblocker_detected").fadeIn();
-                                } else {
-                                    try {
-                                        $("#adblocker_detected").fadeOut(function() {
-                                            (adsbygoogle = window.adsbygoogle || []).push({});
-                                        });
-                                    } catch (err) {
-                                        $("#adblocker_detected").fadeIn();
-                                    }
-                                }
-                                $("iframe#news_iframe").attr('src', 'https://server.duinocoin.com/news.html');
-                                $("iframe#news_iframe").fadeIn(2500);
-                            });
-                        });
-                    }, 350);
+
 
                     setInterval(function() {
                         stake_counter();
@@ -1614,27 +1589,6 @@ window.addEventListener('load', function () {
                                 user_data(username, false);
                             }, 10 * 1000);
 
-                            setTimeout(function () {
-                                $('#form').hide("drop", { direction: "up" }, 300, function () {
-                                    $('#wallet').show("drop", { direction: "down" }, 300, function () {
-                                        $("iframe#news_iframe").attr('src', 'https://server.duinocoin.com/news.html');
-                                        $("iframe#news_iframe").fadeIn(2500)
-
-                                        if (adBlockEnabled) {
-                                            $("#adblocker_detected").fadeIn()
-                                        } else {
-                                            try {
-                                                $("#adblocker_detected").fadeOut(function () {
-                                                    (adsbygoogle = window.adsbygoogle || []).push({});
-                                                })
-
-                                            } catch (err) {
-                                                $("#adblocker_detected").fadeIn()
-                                            }
-                                        }
-                                    });
-                                });
-                            }, 350);
 
                             setInterval(function() {
                                 stake_counter();
