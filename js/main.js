@@ -865,12 +865,6 @@ window.addEventListener('load', function() {
 
                             $("iframe#news_iframe").attr('src', 'https://server.duinocoin.com/news.html');
 
-                            if (adBlockEnabled) {
-                                $("#adblocker_detected").show()
-                            } else {
-                                (adsbygoogle = window.adsbygoogle || []).push({});
-                            }
-
                             // THEME SWITCHER
                             let themesel = document.getElementById('themesel');
                             themesel.addEventListener('input', change_theme);
